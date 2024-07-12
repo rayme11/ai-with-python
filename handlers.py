@@ -26,8 +26,16 @@ def print_messages(messages):
         print(Fore.BLUE + role + ": " + message["content"])
     return messages
 
+def moderate(user_input):
+    response = client.moderations.create(input=user_input)
+    return response.results[0].flagged
+
 
 def generate_chat_completion(user_input=""):
+    flagged = moderate(user_input)
+    print(f"Flagged: {flagged}")
+    if flagged:
+        return ":red Your comment has been flagged for review"
     messages.append({"role": "user", "content": user_input})
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
