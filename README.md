@@ -1,40 +1,74 @@
-# Generative AI for Python Developers
-This is the repository for the LinkedIn Learning course `Generative AI for Python Developers`. The full course is available from [LinkedIn Learning][lil-course-url].
+## Project : Build a Custom Q&A Chatbot with OpenAI, LangChain, Chroma and Streamlit
 
-![lil-thumbnail-url]
+....
 
-Ever since the launch of ChatGPT and the release of new modeling languages by OpenAI in 2022, there has been a growing interest within the wider tech community to explore the potential of multiple applications of generative AI in software and web development. In this course, join instructor Sandy Ludosky to get up to speed quickly with the latest tools and technologies, with hands-on training and exercise challenges along the way.
+## 💻 Project Overview
 
-Learn how to use generative AI to create next-generation Python applications including your own chatbot application. Sandy shows you how to start experimenting with other generative models such as DALL-E and the Whisper Audio API as well as how to extend LLM capabilities with function calling and build a custom-knowledge chatbot using LangChain, embeddings, and ChromaDB.
+we will build a custom Q&A chatbot using OpenAI, LangChain and Chroma. We will use the OpenAI API to generate answers to questions, LangChain to translate the questions and answers to and from English, and Chroma to convert the text to speech. We will also use the Google Cloud Text-to-Speech API to convert the text to speech.
 
-_See the readme file in the main branch for updated instructions and information._
-## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+## 🛠️ Requirements : Installation & Setup
 
-## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
+### Python 3.10.0
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
+`brew install pyenv`
+`pyenv install 3.10.0`
 
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
+switch to python 3.10.0
 
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
+`pyenv local 3.10.0`
 
-Instructor
-Sandy Ludosky
+### packages
 
-Web Developer and Trainer
+- **LangChain** :[LangChain](https://www.langchain.com/) is a Python library that translates text to and from any language. It uses the Google Translate API to translate text. It also uses the Google Cloud Text-to-Speech API to convert text to speech.
+- **Chroma** : [Chroma](https://www.trychroma.com/) is a Python library that converts text to speech. It uses the Google Cloud Text-to-Speech API to convert text to speech.
+- **OpenAI** : [OpenAI](https://python.langchain.com/docs/integrations/platforms/openai) is a Python library that provides a simple interface to the OpenAI API. It also provides a command-line interface (CLI) for interacting with the API.
+- **python-dotenv** : [python-dotenv](https://pypi.org/project/python-dotenv/) is a Python library that loads environment variables from a .env file. It is used to load the OpenAI API key from the .env file.
+- **Streamlit** : [Streamlit](https://streamlit.io/) is a Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. It is used to create the web app.
 
-Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/sandy-ludosky?u=104).
+## 🌐 Create a virtual environment & activate the virtual environment :
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+**MacOS/Linux**:
 
-[lil-course-url]: https://www.linkedin.com/learning/generative-ai-for-python-developers
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/D4D0DAQG7pjzOFAYjWA/learning-public-crop_675_1200/0/1707868438526?e=2147483647&v=beta&t=OYrT3o9Npcc2tlh50dVFk1Uv_dSOIWZqHNn2Ozrxrg4
+```
+python3 -m venv env
+source env/bin/activate
 
+```
+
+**Windows**:
+
+```
+python -m venv env
+source env/bin/activate
+```
+
+## 🏗️ Installation:
+
+### Install Python 3.6 or higher
+
+use pip3 on a Mac or Linux and pip on Windows
+
+```
+pip install -r requirements.txt
+pip install --upgrade langchain
+```
+
+## [Get an API key](https://platform.openai.com/account/api-keys)
+
+### Set the key as an environment variable:
+
+`export OPENAI_API_KEY='sk-brHeh...A39v5iXsM2'`
+
+.env file:
+
+```
+OPENAI_API_KEY=sk-brHeh...A39v5iXsM2
+```
+
+## ▶️ Start the app:
+
+`python main.py`
+
+## ▶️ start streamlit app on localhost:8501:
+
+`streamlit run main.py`
